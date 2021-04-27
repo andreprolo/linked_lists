@@ -1,15 +1,15 @@
 # Linked Lists
 
-`Linked lists` (ou Listas Encadeadas) são uma estrutura de dados semelhantes as listas convencionais. A diferença se da na forma em que os elementos são armazenados.
+`Linked lists` (ou Listas Encadeadas) é uma estrutura de dados semelhantes às listas convencionais. A diferença se dá na forma em que os elementos são armazenados.
 
-Em listas convencionais os elementos são armazenados de forma continua, já nas `linked lists`, cada elemento é armazenado de forma separada, possuindo duas informações:
+Em listas convencionais os elementos são armazenados de forma contínua, já nas `linked lists`, cada elemento é armazenado de forma separada, possuindo duas informações:
 
 - Um valor .
 - E um pointeiro para o próximo elemento da lista.
 
     - Ponteiro: é uma variável que armazena o endereço (ou referência) de outra variável.
 
-O legal de se utilizar `Linked lists`, é que há um grande ganho de flexibilidade, pois a estrutura de dados é dinâmica, ou seja, ela pode aumentar e diminuir seu tamanho em tempo de execução. Desse modo, não é necessário informar o tamanho inicial da lista.
+A vantagem de se utilizar `Linked lists`, é que há um grande ganho de flexibilidade, pois a estrutura de dados é dinâmica, ou seja, ela pode aumentar e diminuir seu tamanho em tempo de execução. Desse modo, não é necessário informar o tamanho inicial da lista.
 
 Antes de vermos as `Linked Lists` na prática, é necessário entender algumas nomenclaturas que compoem a estrutura de uma `Linked List`:
 
@@ -32,7 +32,7 @@ O que apresentamos anteriormente, são as Listas Simplemente Encadeadas (ou `Sin
 
 Além dela temos as Listas Duplamente Encadeadas (ou `Doubly-Linked List`).
 
-Onde basicamente a diferença se da por elas possuírem dois ponteiros, que apontam para ambas as direções, o que torna possivel a navegação inversa à convencional apresentada na `Singly-Linked List`.
+Basicamente, a diferença se dá por elas possuírem dois ponteiros, que apontam para ambas as direções, o que torna possivel a navegação inversa à convencional apresentada na `Singly-Linked List`.
 
 Estrutura de uma `Doubly-Linked List`:
 
