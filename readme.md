@@ -52,11 +52,10 @@ Imagem representativa:
 
 
 ## Exemplo prático
-Nesse repositório temos os arquivo ``singly_linked_lists.rb`` e ``doubly_linked_list.rb`` que contém todo código dos exemplos abaixo.
+Nesse repositório temos os arquivo ``singly_linked_lists.rb`` que contém todo código do exemplo abaixo.
 
-> Os exemplos foram desenvolvido utilizando a linguagem Ruby
-
-### Singly Linked List
+> O exemplo foi desenvolvido utilizando a linguagem Ruby
+### Singly Linked List - Example
 
 O primeiro passo para criarmos uma `singly linked list`, é criarmos uma classe que represente a estrutura de dados:
 
@@ -74,7 +73,16 @@ def initialize
 end
 ```
 
-Também criaremos um método para 
+Também criaremos um método para nos auxiliar a encontrar o `Tail`:
+
+```ruby
+def find_tail
+  node = @head
+
+  return node if !node.next
+  return node if !node.next while (node = node.next)
+end
+```
 
 Em seguida vamos definir a estrutura de um `Node`, que será bem simples, ele terá dois atributos: 
 - `value` (valor do nó) 
@@ -94,17 +102,99 @@ class Node
 end
 ```
 
-Agora podemos incluir métodos para `inserção`, `exclusão` e `busca` na nossa classe `SinglyLinkedList`.
+Por fim podemos incluir métodos para `inserção`, `exclusão` e `busca` na nossa classe `SinglyLinkedList`:
 
-- Inserção:
+- Busca por um value:
+
+  ```ruby
+  def find(value)
+    node = @head
+    
+    return false if !node.next
+    return node  if node.value == value
+
+    while (node = node.next)
+      return node if node.value == value
+    end
+  end
+  ```
+
+- Inserção no final da linked list:
+
+  ```ruby
+  def append(value)
+      if @head
+          find_tail.next = Node.new(value)
+      else
+          @head = Node.new(value)
+      end
+  end
+  ``` 
+- Inserção após um nó alvo:
+  ```ruby
+  def append_after(target, value)
+      node = find(target)
+
+    return unless node
+
+    old_next = node.next
+    node.next = Node.new(value)
+    node.next.next = old_next
+  end
+  ```
+
+- Para auxiliar a exclusão, criamos esse método, que basicamente encontra o nó anterior a um determinado value:
+
+  ```ruby
+  def find_before(value)
+    node = @head
+
+    return false if !node.next
+    return node  if node.next.value == value
+
+    while (node = node.next)
+      return node if node.next && node.next.value == value
+    end
+  end
+  ```
+
+- Exclusão:
+
+  ```ruby
+  def delete(value)
+    if @head.value == value
+      @head = @head.next
+      return
+    end
+
+    node = find_before(value)
+    node.next = node.next.next
+  end
+  ```
+
+E é basicamente isso, podemos fazer o teste criando uma instância da nossa linked list e adicionando aguns valores para testar:
+
+> Obs: Sobreescrevemos o método print em nossa linked list e o método to_s em nosso Node pra melhorar a visualização.
 
 ```ruby
-def append(value)
-    if @head
-        find_tail.next = Node.new(value)
-    else
-        @head = Node.new(value)
-    end
-end
+linked_list = SinglyLinkedList.new
+
+linked_list.append(10)
+linked_list.append(20)
+linked_list.append(30)
+
+linked_list.append_after(10, 15)
+linked_list.append_after(20, 25)
+
+linked_list.print
 ```
 
+Output:
+
+```bash
+Node with value: 10
+Node with value: 15
+Node with value: 20
+Node with value: 25
+Node with value: 30
+```
