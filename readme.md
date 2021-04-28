@@ -52,14 +52,16 @@ Imagem representativa:
 
 
 ## Exemplo prático
-Nesse repositório temos o arquivo ``linked_lists.rb`` que contém todo código do exemplo abaixo.
+Nesse repositório temos os arquivo ``singly_linked_lists.rb`` e ``doubly_linked_list.rb`` que contém todo código dos exemplos abaixo.
 
-> O exemplo foi desenvolvido utilizando a linguagem Ruby
+> Os exemplos foram desenvolvido utilizando a linguagem Ruby
 
-O primeiro passo para criarmos uma `linked list`, é criarmos uma classe que represente a estrutura de dados:
+### Singly Linked List
+
+O primeiro passo para criarmos uma `singly linked list`, é criarmos uma classe que represente a estrutura de dados:
 
 ```ruby
-class LinkedList
+class SinglyLinkedList
 
 end
 ```
@@ -71,3 +73,38 @@ def initialize
     @head = nil
 end
 ```
+
+Também criaremos um método para 
+
+Em seguida vamos definir a estrutura de um `Node`, que será bem simples, ele terá dois atributos: 
+- `value` (valor do nó) 
+- `next` (ponteiro para o próximo nó)
+
+Segue o exemplo:
+
+```ruby
+class Node
+    attr_accessor :next
+    attr_reader   :value
+
+    def initialize(value)
+        @value = value
+        @next  = nil
+    end
+end
+```
+
+Agora podemos incluir métodos para `inserção`, `exclusão` e `busca` na nossa classe `SinglyLinkedList`.
+
+- Inserção:
+
+```ruby
+def append(value)
+    if @head
+        find_tail.next = Node.new(value)
+    else
+        @head = Node.new(value)
+    end
+end
+```
+
