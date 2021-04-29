@@ -52,7 +52,7 @@ Imagem representativa:
 
 
 ## Exemplo prático
-Nesse repositório temos os arquivo ``singly_linked_lists.rb`` que contém todo código do exemplo abaixo.
+Nesse repositório temos o arquivo ``singly_linked_lists.rb`` que contém todo código do exemplo abaixo.
 
 > O exemplo foi desenvolvido utilizando a linguagem Ruby
 ### Singly Linked List - Example
@@ -65,7 +65,7 @@ class SinglyLinkedList
 end
 ```
 
-Nessa classe vamos incluir um construtor para criar o `Head` da nossa linked list, onde inicialmente deixaremos ele nulo:
+Nessa classe vamos incluir um construtor para criar o `Head` da nossa linked list, que iniciará como `nulo`:
 
 ```ruby
 def initialize
@@ -106,7 +106,7 @@ Por fim podemos incluir métodos para `inserção`, `exclusão` e `busca` na nos
 
 - Busca por um value:
 
-  ```ruby
+```ruby
   def find(value)
     node = @head
     
@@ -117,11 +117,11 @@ Por fim podemos incluir métodos para `inserção`, `exclusão` e `busca` na nos
       return node if node.value == value
     end
   end
-  ```
+ ``` 
 
 - Inserção no final da linked list:
 
-  ```ruby
+```ruby
   def append(value)
       if @head
           find_tail.next = Node.new(value)
@@ -129,9 +129,9 @@ Por fim podemos incluir métodos para `inserção`, `exclusão` e `busca` na nos
           @head = Node.new(value)
       end
   end
-  ``` 
+ ```  
 - Inserção após um nó alvo:
-  ```ruby
+```ruby
   def append_after(target, value)
       node = find(target)
 
@@ -145,7 +145,7 @@ Por fim podemos incluir métodos para `inserção`, `exclusão` e `busca` na nos
 
 - Para auxiliar a exclusão, criamos esse método, que basicamente encontra o nó anterior a um determinado value:
 
-  ```ruby
+ ```ruby
   def find_before(value)
     node = @head
 
@@ -156,7 +156,7 @@ Por fim podemos incluir métodos para `inserção`, `exclusão` e `busca` na nos
       return node if node.next && node.next.value == value
     end
   end
-  ```
+```  
 
 - Exclusão:
 
@@ -170,13 +170,13 @@ Por fim podemos incluir métodos para `inserção`, `exclusão` e `busca` na nos
     node = find_before(value)
     node.next = node.next.next
   end
-  ```
+```
 
 E é basicamente isso, podemos fazer o teste criando uma instância da nossa linked list e adicionando aguns valores para testar:
 
 > Obs: Sobreescrevemos o método print em nossa linked list e o método to_s em nosso Node pra melhorar a visualização.
 
-```ruby
+ruby
 linked_list = SinglyLinkedList.new
 
 linked_list.append(10)
@@ -187,14 +187,13 @@ linked_list.append_after(10, 15)
 linked_list.append_after(20, 25)
 
 linked_list.print
-```
+
 
 Output:
 
-```bash
+bash
 Node with value: 10
 Node with value: 15
 Node with value: 20
 Node with value: 25
 Node with value: 30
-```
