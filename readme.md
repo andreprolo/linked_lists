@@ -170,13 +170,13 @@ Por fim podemos incluir métodos para `inserção`, `exclusão` e `busca` na nos
     node = find_before(value)
     node.next = node.next.next
   end
-```
+  ```
 
 E é basicamente isso, podemos fazer o teste criando uma instância da nossa linked list e adicionando aguns valores para testar:
 
 > Obs: Sobreescrevemos o método print em nossa linked list e o método to_s em nosso Node pra melhorar a visualização.
 
-ruby
+```ruby
 linked_list = SinglyLinkedList.new
 
 linked_list.append(10)
@@ -187,13 +187,14 @@ linked_list.append_after(10, 15)
 linked_list.append_after(20, 25)
 
 linked_list.print
-
+```
 
 Output:
 
-bash
+```bash
 Node with value: 10
 Node with value: 15
 Node with value: 20
 Node with value: 25
 Node with value: 30
+```
